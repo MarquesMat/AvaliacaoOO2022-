@@ -17,11 +17,46 @@ public class Menu {
         System.out.println("4 - Escolher Classe");
         System.out.println("5 - Rolar Dados");
         System.out.println("6 - Realizar cadastro (AvaliacaoOO2022)");
+        //fechar sem marcar essa opção para ativar a exceção
         System.out.println("7 - Fechar");
     }
     
-    public static void cadastro(Scanner teclado) {
+    public static void cadastro() {
+        Scanner teclado = new Scanner(System.in);
+        boolean verifica;
+        System.out.println("\n---Iniciando cadastro---");
+        do {
+            try {
+                System.out.print("Informe seu nome: ");
+                Personagem.setAvaNome(teclado.nextLine());
+                verifica = false;
+            } catch(DadoInvalidoException e) {
+                System.out.println(e.getMessage());
+                verifica = true;
+            }
+        } while(verifica);
         
+        do {
+            try {
+                System.out.print("\nInforme sua matricula(apenas numeros): ");
+                Personagem.setAvaMatricula(teclado.nextInt());
+                verifica = false;
+            } catch(DadoInvalidoException e) {
+                System.out.println(e.getMessage());
+                verifica = true;
+            }
+        } while(verifica);
+        
+        do {
+            try {
+                System.out.print("\nInforme sua nota(utilize virgula): ");
+                Personagem.setAvaNota(teclado.nextFloat());
+                verifica = false;
+            } catch(DadoInvalidoException e) {
+                System.out.println(e.getMessage());
+                verifica = true;
+            }
+        } while(verifica);
     }
     
     public static void equipamentos() {
@@ -84,14 +119,7 @@ public class Menu {
                     
                 }
                 case 6 -> {
-                    System.out.println("---Iniciando cadastro---");
-                    //teclado.nextLine();
-                    System.out.print("Informe seu nome: ");
-                    Personagem.setAvaNome(teclado.nextLine());
-                    System.out.print("\nInforme sua matricula(apenas numeros): ");
-                    Personagem.setAvaMatricula(teclado.nextInt());
-                    System.out.print("\nInforme sua nota: ");
-                    Personagem.setAvaNota(teclado.nextFloat());
+                    cadastro();
                 }
                 case 7 -> {
                     op = 0;
@@ -106,7 +134,7 @@ public class Menu {
             }
         }while(op != 7 );
         
-        //teclado.nextLine();
+        teclado.nextLine();
         System.out.println("\n\n---Muito bem! Agora, vamos para a parte mais dificil: a escolha de um nome!---");
         System.out.print("\nDigite o nome do seu presonagem: ");
         nome = teclado.nextLine();

@@ -31,7 +31,7 @@ public final class BancoDeArmaduras implements Conferir {
         System.out.println("Status: +1 Defesa, 0 penalidade, armadura leve\n");
         System.out.println("2 - Couro batido");
         System.out.println("Status: +2 Defesa, -1 penalidade, armadura leve\n");
-        System.out.println("3- Gibao de peles");
+        System.out.println("3 - Gibao de peles");
         System.out.println("Status: +5 Defesa, -3 penalidade, armadura pesada\n");
     }
     
@@ -39,7 +39,7 @@ public final class BancoDeArmaduras implements Conferir {
         System.out.println("\nARMADURAS:");
         System.out.println("1 - Corselete de couro");
         System.out.println("2 - Couro batido");
-        System.out.println("3- Gibao de peles");
+        System.out.println("3 - Gibao de peles");
         if(!pesada) System.out.println("(Incompativel com sua classe)\n");        
     }
     

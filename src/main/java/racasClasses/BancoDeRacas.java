@@ -31,26 +31,26 @@ public final class BancoDeRacas implements Conferir {
 
     public static void ImprimeRacas(){
        System.out.println("\nRACAS:");
-       System.out.println("1- Elfo");
+       System.out.println("1 - Elfo");
        System.out.println("Atributos: -2 em Constituição, +4 em inteligência, +2 em destreza ");
        System.out.println("Poder: Rapido como o vento: ganhe mais 2 quadrados de deslocamento e mais um ponto de mana.");
-       System.out.println("\n2- Anao");
+       System.out.println("\n2 - Anao");
        System.out.println("Atributos: -2 em Destreza, +4 em Constituição,+2 em Sabedoria");
        System.out.println("Poder: Devagar e sempre: perca 2 quadrados de deslocamento, mas ganhe mais 3 pontos de vida e ignore penalidades de armaduras.");
-       System.out.println("\n3- Minotauro");
+       System.out.println("\n3 - Minotauro");
        System.out.println("Atributos: -2 em Sabedoria, +4 em Força,+2 em Constituição");
        System.out.println("Poder: Couro duro: ganhe um bonus de +1 na Defesa.");
-       System.out.println("\n4- Goblin");
+       System.out.println("\n4 - Goblin");
        System.out.println("Atributos: -2 em Carisma, +4 em Destreza,+2 em Inteligência");
        System.out.println("Poder: Peste esguia: ganhe um bonus de +1 no Ataque.");
     }
     
     public static void ImprimeRacasSimples(){
        System.out.println("\nRACAS:");
-       System.out.println("1- Elfo");
-       System.out.println("2- Anao");
-       System.out.println("3- Minotauro");
-       System.out.println("4- Goblin");
+       System.out.println("1 - Elfo");
+       System.out.println("2 - Anao");
+       System.out.println("3 - Minotauro");
+       System.out.println("4 - Goblin");
     }
         
    public static int EscolheRacas(){

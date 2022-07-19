@@ -38,10 +38,10 @@ public final class BancoDeClasses implements Conferir {
         System.out.println("\n2 - Bruxo");
         System.out.println("Status: 8 de pontos de vida base, + 2 pontos de vida por nível, 6 pontos de mana por nível");
         System.out.println("Poder: Bola de fogo: Cause 3d6 pontos de dano. (5 PM)");
-        System.out.println("\n3- Clerigo");
+        System.out.println("\n3 - Clerigo");
         System.out.println("Status: 16 de pontos de vida base, + 4 pontos de vida por nível, 5 pontos de mana por nível");
         System.out.println("Poder: Curar ferimentos: Ganhe 2d8 PV. (3 PM)");
-        System.out.println("\n4- Cacador");
+        System.out.println("\n4 - Cacador");
         System.out.println("Status: 16 de pontos de vida base, + 4 pontos de vida por nível, 4 pontos de mana por nível");
         System.out.println("Poder: Marca do cacador: Aumente a margem de critico em 2. (3 PM)");
     }
@@ -50,8 +50,8 @@ public final class BancoDeClasses implements Conferir {
         System.out.println("\nCLASSES:");
         System.out.println("1 - Guerreiro");
         System.out.println("2 - Bruxo");
-        System.out.println("3- Clerigo");
-        System.out.println("4- Cacador");
+        System.out.println("3 - Clerigo");
+        System.out.println("4 - Cacador");
     }
     
     public static int EscolheClasses(){

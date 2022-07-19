@@ -19,7 +19,7 @@ public class Personagem implements Serializable {
     public Personagem() {
         Personagem.atributos = new Atributos(0,0,0,0,0,0);
         Personagem.nivel = 1;
-        Personagem.ava = null;
+        Personagem.ava = new AvaliacaoOO2022();
     } 
     
     public static void setRaca(Raca raca) {
@@ -140,6 +140,10 @@ public class Personagem implements Serializable {
         Personagem.atributos.imprimeAtributos();
     }
     
+    public static Atributos getAtributos() {
+        return Personagem.atributos;
+    }
+    
     public static void subirNivel() {
         Personagem.nivel++;
         Personagem.setPv();
@@ -157,5 +161,9 @@ public class Personagem implements Serializable {
     }
     public static void setAvaNota(float nota) {
         Personagem.ava.setNota(nota);
+    }
+    
+    public static AvaliacaoOO2022 getAva() {
+        return Personagem.ava;
     }
 }

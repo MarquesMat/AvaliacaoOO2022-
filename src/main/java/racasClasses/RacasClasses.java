@@ -1,7 +1,9 @@
 package racasClasses;
 
+import java.io.Serializable;
 
-public abstract class RacasClasses {
+
+public abstract class RacasClasses implements Serializable {
     protected String nome;
     protected int poder;
     

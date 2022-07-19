@@ -1,9 +1,10 @@
 package atributos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Atributos {   
+public class Atributos implements Serializable {   
     private List<Integer> atributos = new ArrayList<>(6);
     private List<Integer> modificadores = new ArrayList<>(6);
     //FOR, DES, CON, INT, SAB, CAR

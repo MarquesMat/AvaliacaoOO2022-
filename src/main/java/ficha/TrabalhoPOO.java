@@ -7,11 +7,9 @@ import equipamentos.BancoDeArmas;
 import poderes.Poderes;
 import combate.BancoDeInimigos;
 import combate.Combate;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class TrabalhoPOO {
@@ -36,12 +34,29 @@ public class TrabalhoPOO {
         System.out.println("Poderes: ");
         System.out.println(Poderes.mapPoderes.get(Personagem.getRaca().getPoder()));
         System.out.println(Poderes.mapPoderes.get(Personagem.getClasse().getPoder()));
-        
+    }
+    
+    public static <T extends Object> void gravarObjeto(String nomeArq, T objeto) {
+        FileOutputStream fluxo;
+        try {
+            fluxo = new FileOutputStream(nomeArq);
+            ObjectOutputStream objarq = new ObjectOutputStream(fluxo);
+            objarq.writeObject(objeto);
+            objarq.close();
+        } catch(FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch(IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
     
     public static void main(String[] args) {
-        
-        
+        /*
+        Clasees alteradas:
+        Menu
+        Personagem
+        DadoInvalidoException
+        */
         BancoDeRacas bancoDeRacas = new BancoDeRacas();
         BancoDeClasses bancoDeClasses = new BancoDeClasses();
         BancoDeArmaduras bancoDeArmaduras = new BancoDeArmaduras();
@@ -51,47 +66,28 @@ public class TrabalhoPOO {
         //os construtores preparam os dicionarios
         Personagem personagem = new Personagem();
         
-        
         Menu.exec();
         Personagem.iniciar();
-        System.out.println(personagem);
-        //imprimirFichaProvisoria();
-        //Menu.exec2();
-        //Personagem.equipar();
-        //Personagem.poderRaca();
-        //imprimirFicha();
         
-        FileOutputStream fluxo;
+        gravarObjeto("raca.ser", Personagem.getRaca());
+        gravarObjeto("classe.ser", Personagem.getClasse());
+        gravarObjeto("atributos.ser", Personagem.getAtributos());
         try {
-            fluxo = new FileOutputStream("ava.ser");
-            ObjectOutputStream objarq = new ObjectOutputStream(fluxo);
-            objarq.writeObject(personagem);
-            objarq.close();
-            System.out.println("Objeto gravado");
-        } catch(FileNotFoundException e) {
+            if(Personagem.getAva().getMatricula() < 0) throw new AvaliacaoOO2022NaoInformadaException("\n---Preencha seu cadastro antes de continuar---");
+            gravarObjeto("ava.ser", Personagem.getAva());
+        } catch(AvaliacaoOO2022NaoInformadaException e) {
             System.out.println(e.getMessage());
-        } catch(IOException e) {
-            System.out.println(e.getMessage());
+            Menu.cadastro();
         }
+        //o personagem só vai ser gravado depois que o atributo ava for gravado
         
-        Personagem ava;
-        FileInputStream fluxo1;
-        try {
-            fluxo1 = new FileInputStream("ava.ser");
-            ObjectInputStream objarq = new ObjectInputStream(fluxo1);
-            ava = (Personagem) objarq.readObject();
-            objarq.close();
-            System.out.println("Objeto lido\n"+ava);
-            /*
-            System.out.println("Nome: \n"+ava1.getNome());
-            System.out.println("Matricula: \n"+ava1.getMatricula());
-            System.out.println("Nota: \n"+ava1.getNota());
-            */
-        } catch(FileNotFoundException e) {
-            System.out.println(e.getMessage());
-        } catch(IOException | ClassNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
+        imprimirFichaProvisoria();
+        Menu.exec2();
+        Personagem.equipar();
+        Personagem.poderRaca();
+        imprimirFicha();
+        
+        gravarObjeto("personagem.ser", personagem);
         
         boolean vencer;
         if(Menu.encerrar()) return;
@@ -99,6 +95,7 @@ public class TrabalhoPOO {
             vencer = Combate.luta(BancoDeInimigos.mapClasses.get(1));
             if(vencer) {
                 Personagem.subirNivel();
+                gravarObjeto("personagem.ser", personagem);
                 System.out.println("---Parabens pela vitoria!---");
             }
             else System.out.println("---Tente de novo!---");
@@ -109,6 +106,7 @@ public class TrabalhoPOO {
             vencer = Combate.luta(BancoDeInimigos.mapClasses.get(2));
             if(vencer) {
                 Personagem.subirNivel();
+                gravarObjeto("personagem.ser", personagem);
                 System.out.println("---Parabens pela vitoria!---");
             }
             else System.out.println("---Tente de novo!---");
@@ -119,6 +117,7 @@ public class TrabalhoPOO {
             vencer = Combate.luta(BancoDeInimigos.mapClasses.get(3));
             if(vencer) {
                 Personagem.subirNivel();
+                gravarObjeto("personagem.ser", personagem);
                 System.out.println("---Parabens pela vitoria!---");
             }
             else System.out.println("---Tente de novo!---");
