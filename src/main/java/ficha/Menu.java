@@ -9,7 +9,6 @@ import java.util.List;
 import racasClasses.*;
 
 public class Menu {
-    
     public static void menu() {
         System.out.println("\nO que deseja fazer?");
         System.out.println("1 - Imprimir Racas");
@@ -17,7 +16,12 @@ public class Menu {
         System.out.println("3 - Escolher Raca");
         System.out.println("4 - Escolher Classe");
         System.out.println("5 - Rolar Dados");
-        System.out.println("6 - Fechar");
+        System.out.println("6 - Realizar cadastro (AvaliacaoOO2022)");
+        System.out.println("7 - Fechar");
+    }
+    
+    public static void cadastro(Scanner teclado) {
+        
     }
     
     public static void equipamentos() {
@@ -37,13 +41,13 @@ public class Menu {
         int x;
         int op = 0;
         
+        Scanner teclado = new Scanner(System.in);
         String nome;
         List numeros = new ArrayList<Integer>();
        
         do{
             // tratamento de exceção InputMismatchException:
              try{
-                Scanner teclado = new Scanner(System.in);
                 menu();
                 op = teclado.nextInt();
                 
@@ -80,19 +84,28 @@ public class Menu {
                     
                 }
                 case 6 -> {
+                    System.out.println("---Iniciando cadastro---");
+                    //teclado.nextLine();
+                    System.out.print("Informe seu nome: ");
+                    Personagem.setAvaNome(teclado.nextLine());
+                    System.out.print("\nInforme sua matricula(apenas numeros): ");
+                    Personagem.setAvaMatricula(teclado.nextInt());
+                    System.out.print("\nInforme sua nota: ");
+                    Personagem.setAvaNota(teclado.nextFloat());
+                }
+                case 7 -> {
                     op = 0;
                     if(verifica[0] == 0) System.out.println("\nOpa! Voce precisa escolher uma raca antes de continuar.");
                     else if(verifica[1] == 0) System.out.println("\nOpa! Voce precisa escolher uma classe antes de continuar.");
                     else if(verifica[2] == 0) System.out.println("\nOpa! Voce precisa rolar os dados antes de continuar.");
-                    else op = 6;
+                    else op = 7;
                 }
                 default ->{
                     System.out.println("Esta nao e uma opcao valida. Por favor, escolha outra opcao.");
                 }       
             }
-        }while(op != 6 );
+        }while(op != 7 );
         
-        Scanner teclado = new Scanner(System.in);
         //teclado.nextLine();
         System.out.println("\n\n---Muito bem! Agora, vamos para a parte mais dificil: a escolha de um nome!---");
         System.out.print("\nDigite o nome do seu presonagem: ");

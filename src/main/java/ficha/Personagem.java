@@ -3,8 +3,9 @@ package ficha;
 import racasClasses.*;
 import equipamentos.*;
 import atributos.Atributos;
+import java.io.Serializable;
 
-public class Personagem {
+public class Personagem implements Serializable {
     private static String nome;
     private static int pv, mana, deslocamento;
     private static int atq, def, nivel;
@@ -13,16 +14,13 @@ public class Personagem {
     private static Armaduras armadura;
     private static Armas arma;
     private static Atributos atributos;
+    private static AvaliacaoOO2022 ava;
     
     public Personagem() {
         Personagem.atributos = new Atributos(0,0,0,0,0,0);
         Personagem.nivel = 1;
-    }
-    
-    public Personagem(Raca raca, Classe classe, String simbolo) {
-        Personagem.raca = raca;
-        Personagem.classe = classe;
-    }
+        Personagem.ava = null;
+    } 
     
     public static void setRaca(Raca raca) {
         Personagem.raca = raca;
@@ -149,5 +147,15 @@ public class Personagem {
         Personagem.setDefesa();
         Personagem.setAtq();
         Personagem.poderRaca();
+    }
+    
+    public static void setAvaNome(String nome) {
+        Personagem.ava.setNome(nome);
+    }
+    public static void setAvaMatricula(int matricula) {
+        Personagem.ava.setMatricula(matricula);
+    }
+    public static void setAvaNota(float nota) {
+        Personagem.ava.setNota(nota);
     }
 }
